@@ -11,7 +11,7 @@ const PartnersSection = () => (
 				Ils nous ont fait <br />
 				<span className="text-darker">confiance</span>
 			</h2>
-			<div className="mt-8 flex flex-col gap-2 sm:flex-row lg:mt-0">
+			<div className="flex flex-wrap -mx-1 lg:-mx-4">
 				<Partner name="Propel" url="https://withpropel.com/" img={propel.src} />
 				<Partner name="Xarala" url="https://xarala.co/" img={xarala.src} />
 				<Partner
@@ -31,20 +31,17 @@ interface PartnerProps {
 }
 
 const Partner = ({ url: link, img, name }: PartnerProps) => (
-	<a
-		href={link}
-		rel="noreferrer"
-		target="_blank"
-		className="bg-gray-100 w-72 h-32 flex items-center justify-center"
-	>
-		<Image
-			width={160}
-			height={160}
-			alt={`Logo of ${name}`}
-			src={img}
-			className="w-40"
-		/>
-	</a>
+	<div className="my-2 px-2 w-full md:w-1/2 lg:my-2 lg:px-2 lg:w-1/3">
+		<a
+			style={{ position: 'relative' }}
+			href={link}
+			rel="noreferrer"
+			target="_blank"
+			className="bg-gray-100 w-full h-32 flex items-center justify-center shadow-md"
+		>
+			<Image src={img} width={250} height={100} alt="profile" />
+		</a>
+	</div>
 );
 
 export default PartnersSection;
